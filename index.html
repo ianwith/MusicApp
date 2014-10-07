@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>MusicApp</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="mask hidden"></div>
+	<div id="playBg" class="hidden"></div>
+	<div class="cover">
+		<p class="title">
+			把音乐文件拖到这里来可以播放:D
+		</p>
+		<div class="icon_cd_circle_outer" id="clickToAddFile">
+			<div class="icon_cd_circle_inner">
+				<div class="icon_cd_circle_center"></div>
+			</div>
+		</div>
+	</div>
+	<input id="uploadFile" type="file" class="hidden" multiple>
+	<canvas id="drawCanvas" class="hidden"></canvas>
+	<div class="top_bar hidden">
+		<div class="icon_play_list"></div>
+		<div class="music_info">
+			<div class="icon_cd_small_outer">
+				<div class="icon_cd_small_inner"></div>
+			</div>
+			<p class="music_info_title"></p>
+		</div>
+		<div class="icon_full_screen"></div>
+	</div>
+	<div class="bottom_bar hidden">
+		<div class="icon_pause"></div>
+		<div class="icon_nextSong"></div>
+	</div>
+	<audio src="" id="audio"></audio>
+	<div class="play_list_panel hidden">
+		<ul class="play_list"></ul>
+		<div class="add_song">
+			<div class="icon_add_outer">
+				<div class="icon_add_inner"></div>
+			</div>
+		</div>
+	</div>
+	<script src="js/jquery-2.1.1.min.js"></script>
+	<script src="js/require.js" data-main="js/main"></script>
+</body>
+</html>

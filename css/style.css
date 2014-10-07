@@ -1,0 +1,417 @@
+body,p,h1,ul{
+	margin: 0;
+	padding: 0;
+}
+body{
+	font-family: "lucida Grande",Verdana,"Microsoft YaHei";
+	overflow: hidden;
+}
+.hidden{
+	display: none !important;
+}
+.mask{
+	position: absolute;
+	z-index: 10;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #000;
+	opacity: 0.2;
+	/*-webkit-filter: blur(10px);*/
+}
+#playBg{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+}
+#drawCanvas{
+	position: fixed;
+}
+.bg0{
+	background-size: 12px 12px;
+	background-color: rgba(216, 221, 240, 0.5);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(.5, rgba(245, 245, 245, 0.6)), color-stop(.5, transparent), to(transparent)),
+					-webkit-gradient(linear, 0 0, 100% 0, color-stop(.5, rgba(245, 245, 245, 0.6)), color-stop(.5, transparent), to(transparent));
+}
+.bg1{
+	background-color: #13242f;
+	box-shadow: 0 0 100px rgba(0, 0, 0, 0.5) inset;
+}
+/*audio::-webkit-media-controls-panel{
+	border-radius: 3px;
+}
+#audio{
+	position: fixed;
+	bottom: 3px;
+	width: 100%;
+	opacity: 0;
+	-webkit-transition: opacity .6s;
+}
+#audio:hover{
+	opacity: 1;
+}*/
+.cover{
+	margin-top: 180px;
+}
+.title{
+	font-size: 26px;
+	margin-bottom: 50px;
+	text-align: center;
+	text-shadow: 0 0 13px rgba(0, 0, 0, 0.3);
+}
+.icon_cd_circle_outer{
+	position: relative;
+	left: 50%;
+	width: 100px;
+	height: 100px;
+	border: 3px solid #000;
+	border-radius: 50%;
+	margin-left: -53px;
+	cursor: pointer;
+	-webkit-animation: iconCDAnimation 3s linear infinite alternate;
+}
+.icon_cd_circle_inner{
+	position: absolute;
+	left: 28px;
+	top: 28px;
+	width: 40px;
+	height: 40px;
+	border: 2px solid #000;
+	border-radius: 50%;
+}
+.icon_cd_circle_center{
+	position: absolute;
+	left: 3px;
+	top: 3px;
+	width: 28px;
+	height: 28px;
+	border: 3px solid #000;
+	border-radius: 50%;
+}
+.icon_cd_circle_outer::before{
+	content: "";
+	position: absolute;
+	left: 16px;
+	top: 14px;
+	width: 1px;
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+	border-top: 30px solid #000;
+	-webkit-transform: rotate(-54deg);
+	transform: rotate(-54deg);
+}
+.icon_cd_circle_outer::after{
+	content: "";
+	position: absolute;
+	bottom: 14px;
+	right: 16px;
+	width: 1px;
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+	border-top: 30px solid #000;
+	-webkit-transform: rotate(126deg);
+	transform: rotate(126deg);
+}
+.top_bar{
+	position: fixed;
+	display: -webkit-flex;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	height: 50px;
+	background-color: #fff;
+	opacity: 0;
+	-webkit-transition: opacity .6s;
+}
+.top_bar:hover{
+	opacity: 0.6;
+}
+.icon_play_list{
+	width: 36px; /*50-7*2*/
+	margin: 0 8px;
+	padding: 8px 7px 0 7px;
+	cursor: pointer;
+}
+.icon_play_list::before{
+	content: '';
+	display: block;
+	height: 5px;
+	border-top: 6px solid #3D59AB;
+	border-bottom: 6px solid #3D59AB;
+}
+.icon_play_list::after{
+	content: '';
+	display: block;
+	height: 5px;
+	border-bottom: 6px solid #3D59AB;
+}
+.music_info{
+	-webkit-flex: 1;
+	flex: 1;
+	position: relative;
+	text-align: center;
+}
+.icon_cd_small_outer{
+	position: relative;
+	display: inline-block;
+	width: 46px;
+	height: 46px;
+	border: 2px solid #000;
+	border-radius: 50%;
+	-webkit-animation: iconCDAnimation 5s linear infinite;
+}
+.icon_cd_small_inner{
+	position: absolute;
+	width: 18px;
+	height: 18px;
+	border: 1px solid #000;
+	border-radius: 50%;
+	left: 13px;
+	top: 13px;
+}
+.icon_cd_small_inner::before{
+	content: "";
+	position: absolute;
+	left: -7px;
+	top: -7px;
+	width: 1px;
+	border-left: 2px solid transparent;
+	border-right: 2px solid transparent;
+	border-top: 14px solid #000;
+	-webkit-transform: rotate(-54deg);
+	transform: rotate(-54deg);
+}
+.icon_cd_small_inner::after{
+	content: "";
+	position: absolute;
+	bottom: -7px;
+	right: -7px;
+	width: 1px;
+	border-left: 2px solid transparent;
+	border-right: 2px solid transparent;
+	border-top: 14px solid #000;
+	-webkit-transform: rotate(126deg);
+	transform: rotate(126deg);
+}
+.music_info_title{
+	display: inline-block;
+	max-width: 18em;
+	margin-left: 18px;
+	color: #0B1746;
+	line-height: 50px;
+	font-size: 18px;
+	text-align: left;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	cursor: default;
+}
+.icon_full_screen{
+	position: relative;
+	width: 50px;
+	margin: 0 8px;
+	cursor: pointer;
+}
+.icon_full_screen::before{
+	content: '';
+	position: absolute;
+	left: 5px;
+	bottom: 6px;
+	width: 18px;
+	height: 18px;
+	border-bottom: 3px solid #3D59AB;
+	border-left: 3px solid #3D59AB;
+}
+.icon_full_screen::after{
+	content: '';
+	position: absolute;
+	top: 6px;
+	right: 5px;
+	width: 18px;
+	height: 18px;
+	border-top: 3px solid #3D59AB;
+	border-right: 3px solid #3D59AB;
+}
+.bottom_bar{
+	position: fixed;
+	width: 200px;
+	height: 80px;
+	left: 50%;
+	bottom: 0;
+	margin-left: -100px;
+	display: -webkit-flex;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	background-color: #fff;
+	opacity: 0;
+	-webkit-transition: opacity .6s;
+}
+.bottom_bar:hover{
+	opacity: 0.6;
+}
+.icon_pause, .icon_playAgain, .icon_nextSong{
+	position: relative;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	border: 2px solid #000;
+	cursor: pointer;
+}
+.icon_pause:hover, .icon_playAgain:hover, .icon_nextSong:hover{
+	box-shadow: 0 0 6px rgba(0, 0, 0, 0.6), 0 0 8px rgba(0, 0, 0, 0.6) inset;
+}
+.icon_pause::before{
+	content: '';
+	position: absolute;
+	left: 17px;
+	top: 14px;
+	width: 10px;
+	height: 22px;
+	border-left: 3px solid #000;
+	border-right: 3px solid #000;
+}
+.icon_playAgain::before{
+	content: '';
+	position: absolute;
+	left: 17px;
+	top: 13px;
+	border-top: 12px solid transparent;
+	border-bottom: 12px solid transparent;
+	border-left: 20px solid #000;
+}
+.icon_nextSong::before{
+	content: '';
+	position: absolute;
+	left: 16px;
+	top: 15px;
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+	border-left: 15px solid #000;
+}
+.icon_nextSong::after{
+	content: '';
+	position: absolute;
+	right: 16px;
+	top: 15px;
+	width: 3px;
+	height: 20px;
+	background-color: #000;
+}
+.play_list_panel{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 360px;
+	-webkit-transform: translate(-50%, -50%);
+	z-index: 15;
+	border-radius: 3px;
+}
+.play_list_panel::before,
+.play_list_panel::after{
+	content: '';
+	position: absolute;
+	z-index: -1;
+	bottom: 16px;
+	left: 10px;
+	width: 50%;
+	height: 20%;
+	box-shadow: 0 16px 10px rgba(0, 0, 0, 0.6);
+	-webkit-transform: rotate(-4deg);
+	transform: rotate(-4deg);
+}
+.play_list_panel::after{
+	right: 10px;
+	left: auto;
+	-webkit-transform: rotate(4deg);
+	transform: rotate(4deg);
+}
+.play_list{
+	list-style-type: none;
+	max-height: 408px;
+	overflow: auto;
+}
+.play_list_item{
+	display: -webkit-flex;
+	display: flex;
+	align-items: center;
+	padding: 0 20px;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	border-bottom: 1px solid #fff;
+	background-color: #eeeeff;
+}
+.play_list_item:hover{
+	box-shadow: 0 0 30px rgba(0, 0, 0, 0.2) inset;
+}
+.play_list_item_info{
+	-webkit-flex: 1;
+	flex: 1;
+	cursor: pointer;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.play_list_item_playing{
+	flex-shrink: 0;
+	display: -webkit-flex;
+	display: flex;
+	justify-content: space-between;
+	width: 20px;
+	height: 20px;
+	margin-left: 16px;
+	font-size: 0;
+	-webkit-transform: rotate(180deg);
+}
+.icon_playing_bar{
+	width: 2px;
+	height: 0;
+	background-color: #a82f5a;
+}
+.icon_playing_bar:nth-child(1){
+	-webkit-animation: iconPlayingAnimation 1.6s linear 1s infinite alternate;
+}
+.icon_playing_bar:nth-child(2){
+	-webkit-animation: iconPlayingAnimation 1.6s linear .4s infinite alternate;
+}
+.icon_playing_bar:nth-child(3){
+	-webkit-animation: iconPlayingAnimation 1.6s linear .6s infinite alternate;
+}
+.icon_playing_bar:nth-child(4){
+	-webkit-animation: iconPlayingAnimation 1.6s linear 0s infinite alternate;
+}
+.add_song{
+	position: relative;
+	width: 100%;
+	height: 50px;
+	background-color: #eeeeff;
+	cursor: pointer;
+}
+.icon_add_outer{
+	width: 36px;
+	height: 8px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -18px;
+	margin-top: -4px;
+	background-color: #fb3b4e;
+}
+.icon_add_inner{
+	width: 8px;
+	height: 36px;
+	position: absolute;
+	left: 14px;
+	top: -14px;
+	background-color: #fb3b4e;
+}
+@-webkit-keyframes iconCDAnimation{
+	0%{-webkit-transform:rotate(0deg);}
+	100%{-webkit-transform:rotate(360deg);}
+}
+@-webkit-keyframes iconPlayingAnimation{
+	0%{height: 0px;}
+	100%{height: 20px;}
+}
