@@ -5,7 +5,7 @@ The MusicApp is a html5 experimental project.
 
 This application needs chrome to show complete effects.
 
-<h3>How To Use It?<h3>
+<h3>How To Use It?</h3>
 
 Please drag the files into the browser or click the cd-icon to play.
 
