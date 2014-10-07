@@ -35,7 +35,7 @@ define(['analyser'], function(analyser){
 			}
 			else{
 				if(bar[i].h <= data[i*8])
-					bar[i].h += Math.ceil((data[i*8] - bar[i].h) / 2);//除法运算控制上升速度适中
+					bar[i].h += Math.ceil((data[i*8] - bar[i].h) / 2.4);//除法运算控制上升速度适中
 				else
 					bar[i].h -= Math.ceil((bar[i].h - data[i*8]) / 1.6);
 			}
@@ -51,7 +51,6 @@ define(['analyser'], function(analyser){
 			ctx.fillRect(bar[i].x, canvas.height - capPosition[i] - capH, bar[i].w, capH);//画cap
 		}
 	}
-
 	return {
 		draw: draw
 	}

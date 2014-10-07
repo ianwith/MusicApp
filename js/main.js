@@ -39,7 +39,7 @@ require(['commfn', 'visualizer'], function(commfn, visualizer){
 			curSong++;
 			playThisSong(curSong);
 			isPlaying = true;
-			visualizer.startDraw();
+			visualizer.initV();
 		}
 	});
 	//文件拖拽监听
@@ -51,7 +51,7 @@ require(['commfn', 'visualizer'], function(commfn, visualizer){
 			curSong++;
 			playThisSong(curSong);
 			isPlaying = true;
-			visualizer.startDraw();
+			visualizer.initV();
 		}
 	}).on('dragenter', function(){
 		event.preventDefault();
@@ -171,8 +171,8 @@ require(['commfn', 'visualizer'], function(commfn, visualizer){
 			playThisSong(curSong);
 		}
 	}
-	function stopPlay(){//暂时没用到。。。
-		visualizer.stopDraw();
-		audio.pause();
-	}
+	// function stopPlay(){
+	// 	visualizer.stopDraw();
+	// 	audio.pause();
+	// }
 })
