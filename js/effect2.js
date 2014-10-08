@@ -18,10 +18,9 @@ define(['analyser'], function(analyser){
 			for(var i = 0; i < 200; i++){
 				material = new THREE.SpriteCanvasMaterial({
 					color: Math.random() * 0x808008 + 0x808080,
+					opacity: 0.9,
 					program: function(context){
-						context.beginPath();
-						context.arc(0, 0, 0.6, 0, PI2, true);
-						context.fill();
+						context.fillRect(-0.4, -0.4, 0.8, 0.8);
 					}
 				});
 				particle = new THREE.Sprite(material);
