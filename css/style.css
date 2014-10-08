@@ -38,8 +38,23 @@ body{
 	box-shadow: 0 0 100px rgba(0, 0, 0, 0.5) inset;
 }
 .bg2{
-	background-color: #3d5363;
-	box-shadow: 0 0 500px rgba(0, 0, 0, 0.8) inset;
+	background-color: #95c4db;
+	box-shadow: 0 0 500px rgba(0, 0, 0, 0.9) inset;
+}
+.help_prompt{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 360px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	margin-left: -180px;
+	margin-top: -30px;
+	font-size: 20px;
+	color: #fff;
+	background-color: rgba(0, 0, 0, 0.5);
+	border-radius: 10px;
 }
 .cover{
 	margin-top: 180px;

@@ -5,6 +5,7 @@ define(['effect0', 'effect1', 'effect2'], function(){
 		$cover = $('.cover'),
 		$topBar = $('.top_bar'),
 		$bottomBar = $('.bottom_bar'),
+		$help_prompt = $('.help_prompt'),
 		effectList = [], //效果列表
 		curEffectFlag = 0,
 		effect = null, //对象，指示参数中的效果文件
@@ -17,9 +18,19 @@ define(['effect0', 'effect1', 'effect2'], function(){
 	function enableDraw(){
 		$cover.addClass('hidden');
 		$playBg.removeClass('hidden');
-		$topBar.removeClass('hidden');
-		$bottomBar.removeClass('hidden');
 		$canvas.removeClass('hidden');
+		$topBar.add($bottomBar).removeClass('hidden').css('opacity', 0.6);
+		setTimeout(function(){
+			$topBar.add($bottomBar).animate({opacity: 0}, 1000, 'linear', function(){
+				$(this).removeAttr('style');
+			});
+		}, 1500);
+		if(localStorage.getItem('playtimes') === '1'){
+			$help_prompt.removeClass('hidden');
+			setTimeout(function(){
+				$help_prompt.fadeOut(3000);
+			}, 3000);
+		}
 	}
 	function initV(){
 		resizeCanvas();
@@ -63,6 +74,11 @@ define(['effect0', 'effect1', 'effect2'], function(){
 	for(var i = 0; i < arguments.length; i++){
 		effectList[i] = arguments[i];
 	}
+	//localStorage计数
+	if(!localStorage.getItem('playtimes')){
+		localStorage.setItem('playtimes', 0);
+	}
+	localStorage.playtimes = parseInt(localStorage.getItem('playtimes')) + 1;
 	//onresize
 	$(window).on('resize', function(){
 		resizeCanvas();
