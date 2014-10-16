@@ -6,7 +6,9 @@ define(['analyser'], function(analyser){
 		PI2 = Math.PI * 2,
 		data,
 		isInit = false,
-		canvas = document.getElementById('drawCanvas');
+		canvas = document.getElementById('drawCanvas'),
+		colors = ['#b5ef9b', '#65d97d', '#fbd5ac', '#c3bed4', '#eeeeff', /* '#fbee83', */
+				  '#ff788b', '#bf4572', '#4e7da6', '#b4dbd4', '#68bcdd'];
 
 		function _init(){
 			camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 3000);
@@ -17,7 +19,7 @@ define(['analyser'], function(analyser){
 
 			for(var i = 0; i < 200; i++){
 				material = new THREE.SpriteCanvasMaterial({
-					color: Math.random() * 0x808008 + 0x808080,
+					color: colors[Math.floor(Math.random() * colors.length)],
 					opacity: 0.9,
 					program: function(context){
 						context.fillRect(-0.4, -0.4, 0.8, 0.8);
