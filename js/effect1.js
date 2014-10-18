@@ -32,16 +32,16 @@ define(['analyser'], function(analyser){
 			else{
 				if(circle[i].radius < data[i]){
 					circle[i].radius += Math.floor((data[i] - circle[i].radius) / 6);
-					circle[i].opacity += 0.024;
+					circle[i].opacity += 0.024; //略大于减小的幅度
 					(circle[i].opacity > 1) && (circle[i].opacity = 1);
 				}
 				else{
 					circle[i].radius -= Math.floor((circle[i].radius - data[i]) / 6);
 					circle[i].opacity -= 0.02;
-					if(data[i] == 0){
+					if(data[i] == 0){ //能量为0时消失
 						circle[i].opacity = 0;
 					}
-					if(circle[i].opacity < 0){
+					if(circle[i].opacity < 0){ //减小到小于0时重新计算位置
 						circle[i].opacity = 0;
 						circle[i].x = Math.random() * canvas.width;
 						circle[i].y = Math.random() * canvas.height;

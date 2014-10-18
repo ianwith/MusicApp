@@ -5,7 +5,7 @@ define(['analyser'], function(analyser){
 		bar = [],
 		barW = 24, //bar width
 		capH = 24, //cap height
-		num = 64, //bar 数量，resize后不会再去init，直接给个数
+		num = 80, //bar 数量，resize后不会再去init，直接给个数
 		capPosition = [], //cap 位置
 		colors = ['190,238,169', '174,123,179', '247,245,206', '247,166,181', '173,211,225'],
 		isInit = false;

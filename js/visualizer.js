@@ -1,4 +1,4 @@
-define(['effect0', 'effect1', 'effect2'], function(){
+define(['effect0', 'effect1', 'effect2', 'effect3'], function(){
 	var canvas = document.getElementById('drawCanvas'),
 		$canvas = $('#drawCanvas'),
 		$playBg = $('#playBg'),
