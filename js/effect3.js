@@ -15,7 +15,7 @@ define(['analyser'], function(analyser){
 	function _init(){
 		camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 1, 10000);
 		camera.position.z = 1000;
-		camera.position.y = 300;
+		camera.position.y = 200;
 		scene = new THREE.Scene();
 
 		material = new THREE.SpriteCanvasMaterial({
@@ -88,8 +88,8 @@ define(['analyser'], function(analyser){
 			}
 		}
 
-		camera.position.x += (mouseX - camera.position.x) * 0.05;
-		camera.position.y += (-mouseY - camera.position.y) * 0.03;
+		camera.position.x += ( mouseX - camera.position.x ) * 0.05;
+		camera.position.y += ( -mouseY + 200 - camera.position.y ) * 0.04;
 		camera.lookAt(scene.position);
 
 		renderer.render(scene, camera);
