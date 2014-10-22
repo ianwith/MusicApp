@@ -1,4 +1,4 @@
-body,p,h1,ul{
+body, p, h1, ul{
 	margin: 0;
 	padding: 0;
 }
@@ -10,7 +10,7 @@ body{
 	display: none !important;
 }
 .mask{
-	position: absolute;
+	position: fixed;
 	z-index: 10;
 	left: 0;
 	top: 0;
