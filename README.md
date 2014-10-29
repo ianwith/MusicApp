@@ -13,10 +13,12 @@ please open it with chrome.
 
 ###Want to make your own effect?
 1. Just create another effect file. Make sure it is an AMD module, and do not forget to include the analyser module. like this:
-    ```
-    define(['analyser'], function(analyser){
-      //write your code here
-    }
-    ```
+   
+```
+define(['analyser'], function(analyser){
+    //write your code here
+}
+```
+    
 2. Then start to write the draw function!
 3. Make sure your effect file is included by the visualizer module.
