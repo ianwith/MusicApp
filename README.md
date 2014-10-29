@@ -12,13 +12,13 @@ please open it with chrome.
 - Use arrow key *Left* and *Right* to switch between effects.
 
 ###Want to make your own effect?
-1. Just create another effect file. Make sure it is an AMD module, and do not forget to include the analyser module. like this:
+1. Just create another effect file. Make sure it is an AMD module, and do not forget to include the analyser module. Like this:
    
-```
-define(['analyser'], function(analyser){
-    //write your code here
-}
-```
+   ```js
+   define(['analyser'], function(analyser){
+      //write your code here
+   }
+   ```
     
 2. Then start to write the draw function!
 3. Make sure your effect file is included by the visualizer module.
