@@ -3,12 +3,14 @@ MusicApp
 
 The MusicApp is an experimental project.
 
-This application uses several new features of the still-developing html5 standard,
-please open it with chrome.
+This application uses several new features of the still-developing html5 standard(Published as W3C Recommendation 28 October 2014).
+Note: please open it with chrome.
 
 ###Tips for use
 - Drag music files into the browser, or click the cd-icon to add files.
+
 - **Right** click to show the playlist.
+
 - Use arrow key **Left** and **Right** to switch between effects.
 
 ###Want to make your own effect?
@@ -30,3 +32,5 @@ please open it with chrome.
    ```
    
 3. Make sure your effect file is loaded by the `visualizer` module.
+
+4. When you done, open in browser, switch to your new effect and have fun:D
