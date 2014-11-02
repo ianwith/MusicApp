@@ -62,8 +62,8 @@ body{
 	box-shadow: 0 0 100px rgba(0, 0, 0, 0.5) inset;
 }
 .bg2{
-	background-color: #7bbfea;
-	box-shadow: 0 0 500px rgba(78, 125, 166, 0.7) inset;
+	background-color: #cce6de;
+	box-shadow: 0 0 500px rgba(184, 187, 187, 0.9) inset;
 }
 .bg3{
 	background-color: #171916;
@@ -76,7 +76,7 @@ body{
 	font-size: 26px;
 	margin-bottom: 50px;
 	text-align: center;
-	text-shadow: 0 0 13px rgba(0, 0, 0, 0.3);
+	text-shadow: 0 0 46px rgba(0, 0, 0, 0.3);
 }
 .icon_cd_circle_outer{
 	position: relative;
