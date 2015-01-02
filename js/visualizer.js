@@ -12,8 +12,10 @@ define(['effect0', 'effect1', 'effect2', 'effect3'], function(){
         isPlaying = false, //好像没特别用到
         timer = null;
     function resizeCanvas(){ //设置画布宽高
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        canvas.style.width = window.innerWidth + 'px';
+        canvas.style.height = window.innerHeight + 'px';
+        canvas.width = window.innerWidth * window.devicePixelRatio;
+        canvas.height = window.innerHeight * window.devicePixelRatio;
     }
     function enableDraw(){
         $cover.addClass('hidden');
