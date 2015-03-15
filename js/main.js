@@ -1,5 +1,5 @@
 // 程序入口
-require(['commfn', 'visualizer'], function(commfn, visualizer){
+require(['visualizer'], function(visualizer){
     var $body = $('body'),
         $doc = $(document),
         $clickToAddFile = $('#clickToAddFile'),
@@ -16,7 +16,8 @@ require(['commfn', 'visualizer'], function(commfn, visualizer){
         reader = new FileReader(),
         curSong = -1,
         isPlaying = false,
-        isPLshow = false;
+        isPLshow = false,
+        $mask = $('.mask');
 
     //读取文件加载完之后
     reader.onload = function(){
@@ -71,15 +72,15 @@ require(['commfn', 'visualizer'], function(commfn, visualizer){
     })
     //绑定一些点击操作事件
     $body.on('click', '.icon_full_screen', function(){
-        commfn.switchFullScreen();
+        switchFullScreen();
     }).on('click', '.icon_play_list', function(){
-        commfn.showPlayList();
+        showPlayList();
         isPLshow = true;
     }).on('click', '.mask', function(){
         if(isPLshow == true){
             //$(event.target) != $playListPanel  这样比较永远都是true，因为是两个不同的实例，坑爹啊！
             if(event.target != $playListPanel.get(0)){
-                commfn.hidePlayList();
+                hidePlayList();
                 isPLshow = false;
             }
         }
@@ -91,11 +92,11 @@ require(['commfn', 'visualizer'], function(commfn, visualizer){
         if(isPlaying == true){
             event.preventDefault();
             if(isPLshow == false){
-                commfn.showPlayList();
+                showPlayList();
                 isPLshow = true;
             }
             else{
-                commfn.hidePlayList();
+                hidePlayList();
                 isPLshow = false;
             }           
         }
@@ -103,7 +104,7 @@ require(['commfn', 'visualizer'], function(commfn, visualizer){
     //点击列表监听
     $playList.on('click', 'li', function(){
         playThisSong($(this).attr('num'));
-        commfn.hidePlayList();
+        hidePlayList();
         isPLshow = false;
     })
     //添加文件，只是加到列表中，不播放
@@ -175,4 +176,31 @@ require(['commfn', 'visualizer'], function(commfn, visualizer){
     //  visualizer.stopDraw();
     //  audio.pause();
     // }
+    function showPlayList(){
+        $playListPanel.removeClass('hidden');
+        $mask.removeClass('hidden');
+    }
+    function hidePlayList(){
+        $playListPanel.addClass('hidden');
+        $mask.addClass('hidden');
+    }
+    function switchFullScreen(){
+        var fullElement = document.documentElement;
+        if(document.fullscreenElement || document.webkitFullscreenElement){
+            if(document.cancelFullScreen){
+                document.cancelFullScreen();
+            }
+            else if(document.webkitCancelFullScreen){
+                document.webkitCancelFullScreen();
+            }
+        }
+        else{
+            if(fullElement.requestFullScreen){
+                fullElement.requestFullScreen();
+            }
+            else if(fullElement.webkitRequestFullScreen){
+                fullElement.webkitRequestFullScreen();
+            }
+        }
+    }
 })
