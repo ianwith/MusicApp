@@ -3,6 +3,8 @@ MusicApp
 
 The MusicApp is an experimental project.
 
+[see demo here](http://ianwith.github.io/MusicApp/)
+
 This application uses several new features of the still-developing html5 standard (Published as W3C Recommendation 28 October 2014).
 Note: please open it with chrome.
 
